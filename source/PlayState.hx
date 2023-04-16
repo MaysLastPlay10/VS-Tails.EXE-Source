@@ -961,6 +961,11 @@ class PlayState extends MusicBeatState
 		doof.cameras = [camHUD];
 		grpNoteSplashes.cameras = [camHUD];
 
+		#if mobile
+		addMobileControls(false);
+    mobileControls.visible = false;
+		#end
+
 		// if (SONG.song == 'South')
 		// FlxG.camera.alpha = 0.7;
 		// UI_camera.zoom = 1;
