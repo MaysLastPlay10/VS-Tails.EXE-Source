@@ -1966,7 +1966,7 @@ class PlayState extends MusicBeatState
 		scoreTxt.text = "Misses:" + misses + " | " + "Score:" + songScore + " | " + "KPS:" + kps + "(" + kpsMax + ")" + " | " + "Accuracy:" + totalAccuracy + "%" + " | " + "Rank:" + totalRank;
 		
 
-		if (FlxG.keys.justPressed.ENTER && startedCountdown && canPause)
+		if (FlxG.keys.justPressed.ENTER #if mobile || FlxG.android.justReleased.BACK && startedCountdown && canPause)
 		{
 			persistentUpdate = false;
 			persistentDraw = true;
@@ -2509,6 +2509,10 @@ class PlayState extends MusicBeatState
 
 	function endSong():Void
 	{
+                #if mobile
+                mobileControls.visible = false;
+                #end
+
 		canPause = false;
 		FlxG.sound.music.volume = 0;
 		vocals.volume = 0;
