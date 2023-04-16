@@ -82,8 +82,16 @@ class OptionsMenu extends MusicBeatState
 		FlxG.camera.follow(camFollow, null, 0.06);
 
 		changeSelection(0);
-		
 
+                #if mobile addVirtualPad(UP_DOWN, A_B_C); #end
+
+                #if mobile
+		var xd:FlxText = new FlxText(10, 14, 0, 'Press C to customize your android controls', 16);
+		xd.setFormat(Paths.font('vcr.ttf'), 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		xd.borderSize = 2.4;
+		xd.scrollFactor.set();
+		add(xd);
+		#end
 		super.create();
 	}
 
@@ -101,6 +109,14 @@ class OptionsMenu extends MusicBeatState
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
+
+                #if mobile
+		if (virtualPad.buttonC.justPressed)
+		{
+			removeVirtualPad();
+			openSubState(new mobile.MobileControlsSubState());
+		}
+		#end
 
 		FlxG.camera.followLerp = CoolUtil.camLerpShit(0.06);
 
