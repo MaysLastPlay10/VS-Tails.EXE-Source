@@ -33,9 +33,9 @@ class Log
 		if (level >= LogLevel.ERROR)
 		{
 			var message = "[" + info.className + "] ERROR: " + message;
-      #if !android
 			if (throwErrors)
 			{
+      #if !android
                                 if (!FileSystem.exists(SUtil.getPath() + 'logs'))
 					FileSystem.createDirectory(SUtil.getPath() + 'logs');
 
@@ -47,7 +47,7 @@ class Log
 					+ '.log',
 					message
 					+ '\n');
-
+     #end
                                 Lib.application.window.alert(message, 'Error!');
 				throw message;
 			}
@@ -59,7 +59,6 @@ class Log
 				println(message);
 				#end
 			}
-		 #end
 		}
 	}
 	public static function info(message:Dynamic, ?info:PosInfos):Void
