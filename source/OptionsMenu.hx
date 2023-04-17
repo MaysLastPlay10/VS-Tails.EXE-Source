@@ -113,7 +113,7 @@ class OptionsMenu extends MusicBeatState
 	{
 		super.update(elapsed);
 
-                #if mobile
+                
 		if (virtualPad.buttonC.justPressed)
 		{
 			removeVirtualPad();
@@ -165,9 +165,9 @@ class OptionsMenu extends MusicBeatState
 				curSelected = 0;
 				changeSelection(0);
 			}
-			if (controls.UP #if mobile || virtualPad.buttonUp.justPressed #end)
+			if (controls.UP)
 				changeSelection(-1);
-			if (controls.DOWN #if mobile || virtualPad.buttonDown.justPressed #end)
+			if (controls.DOWN)
 				changeSelection(1);
 			
 			if (isCat)
