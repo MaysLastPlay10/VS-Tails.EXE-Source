@@ -184,26 +184,22 @@ class BindMenu extends MusicBeatState
                 rebindBG.visible = false;
                 rebindText.visible = false;
                 rebindText2.visible = false;
-                if (controls.UP)
-				{
-					
+			if (#if android virtualPad.buttonUp.justPressed #else controls.UP #end) {
 					changeItem(-1);
 				}
 
-				if (controls.DOWN)
-				{
-					
+			if (#if android virtualPad.buttonDown.justPressed #else controls.DOWN #end) {
 					changeItem(1);
 				}
 
-                if (controls.ACCEPT){
+			if (#if android virtualPad.buttonA.justPressed #else controls.ACCEPT #end) {
                     FlxG.sound.play(Paths.sound("scrollMenu"), 1, false);
                    
                     state = "input";
                     
                     
                 }
-                else if(controls.BACK){
+			else if (#if android virtualPad.buttonB.justPressed #else controls.BACK #end) {
                     FlxG.sound.play(Paths.sound('cancelMenu'));
                     quit();
                 }
