@@ -168,7 +168,6 @@ class BindMenu extends MusicBeatState
         #if mobile
                  addVirtualPad(UP_DOWN, A_B);
                  addVirtualPadCamera(false);
-                 addVirtua
         #end
 		super.create();
 	}
