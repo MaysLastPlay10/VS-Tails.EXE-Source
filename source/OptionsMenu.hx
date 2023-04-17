@@ -137,9 +137,9 @@ class OptionsMenu extends MusicBeatState
 			});
 		}
 
-			if (controls.BACK && !isCat)
+			if (#if android virtualPad.buttonB.justPressed #else controls.BACK #end && !isCat)
 				FlxG.switchState(new MainMenuState());
-			else if (controls.BACK)
+			else if (#if android virtualPad.buttonB.justPressed #else controls.BACK #end)
 			{
 				isCat = false;
 				grpControls.clear();
@@ -163,11 +163,10 @@ class OptionsMenu extends MusicBeatState
 				curSelected = 0;
 				changeSelection(0);
 			}
-			if (controls.UP)
+			if (#if android virtualPad.buttonUp.justPressed #else controls.UP #end)
 				changeSelection(-1);
-			if (controls.DOWN)
+			if (#if android virtualPad.buttonDown.justPressed #else controls.DOWN #end)
 				changeSelection(1);
-			
 			if (isCat)
 			{
 				if (currentSelectedCat.getOptions()[curSelected].getAccept())
@@ -194,8 +193,7 @@ class OptionsMenu extends MusicBeatState
 
 			
 
-			if (controls.ACCEPT)
-			{
+			if (#if android virtualPad.buttonA.justPressed #else controls.ACCEPT #end) {
 				
 				if (isCat)
 				{
