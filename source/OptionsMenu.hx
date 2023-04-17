@@ -113,13 +113,11 @@ class OptionsMenu extends MusicBeatState
 	{
 		super.update(elapsed);
 
-                
 		if (virtualPad.buttonC.justPressed)
 		{
 			removeVirtualPad();
 			openSubState(new mobile.MobileControlsSubState());
 		}
-		#end
 
 		FlxG.camera.followLerp = CoolUtil.camLerpShit(0.06);
 
