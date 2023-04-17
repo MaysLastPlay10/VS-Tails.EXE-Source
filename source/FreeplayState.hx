@@ -168,7 +168,7 @@ class FreeplayState extends MusicBeatState
 
 			trace(md);
 		 */
-                #if mobile
+                
                 addVirtualPad(UP_DOWN, A_B);
                 addVirtualPadCamera(false);
                 #end
@@ -237,11 +237,11 @@ class FreeplayState extends MusicBeatState
 		var downP = controls.DOWN;
 		var accepted = controls.ACCEPT;
 
-		if (upP #if mobile || virtualPad.buttonUp.justPressed #end)
+		if (upP)
 		{
 			changeSelection(-1);
 		}
-		if (downP #if mobile || virtualPad.buttonDown.justPressed #end)
+		if (downP)
 		{
 			changeSelection(1);
 		}
