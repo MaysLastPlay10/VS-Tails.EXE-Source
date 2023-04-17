@@ -184,13 +184,13 @@ class BindMenu extends MusicBeatState
                 rebindBG.visible = false;
                 rebindText.visible = false;
                 rebindText2.visible = false;
-                if (controls.UP #if mobile || virtualPad.buttonUp.justPressed #end)
+                if (controls.UP)
 				{
 					
 					changeItem(-1);
 				}
 
-				if (controls.DOWN #if mobile || virtualPad.buttonDown.justPressed #end)
+				if (controls.DOWN)
 				{
 					
 					changeItem(1);
