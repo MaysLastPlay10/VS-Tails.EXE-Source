@@ -48,7 +48,7 @@ class CreditsState extends MusicBeatState
 		bg.antialiasing = true;
 		add(bg);
 
-                #if mobile addVirtualPad(NONE, A_B); #end
+                #if mobile addVirtualPad(NONE, B); #end
 
 		super.create();
 
