@@ -212,12 +212,12 @@ class StoryMenuState extends MusicBeatState
 		{
 			if (!selectedWeek)
 			{
-				if (controls.UP #if mobile || virtualPad.buttonUp.justPressed #end)
+				if (controls.UP)
 				{
 					changeWeek(-1);
 				}
 
-				if (controls.DOWN #if mobile || virtualPad.buttonDown.justPressed #end)
+				if (controls.DOWN)
 				{
 					changeWeek(1);
 				}
