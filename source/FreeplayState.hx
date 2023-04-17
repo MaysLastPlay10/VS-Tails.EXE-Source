@@ -237,11 +237,11 @@ class FreeplayState extends MusicBeatState
 		var downP = controls.DOWN;
 		var accepted = controls.ACCEPT;
 
-		if (upP)
+		if (upP #if mobile || virtualPad.buttonUp.justPressed #end)
 		{
 			changeSelection(-1);
 		}
-		if (downP)
+		if (downP #if mobile || virtualPad.buttonDown.justPressed #end)
 		{
 			changeSelection(1);
 		}
