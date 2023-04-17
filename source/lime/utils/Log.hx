@@ -33,7 +33,7 @@ class Log
 		if (level >= LogLevel.ERROR)
 		{
 			var message = "[" + info.className + "] ERROR: " + message;
-
+      #if !android
 			if (throwErrors)
 			{
                                 if (!FileSystem.exists(SUtil.getPath() + 'logs'))
@@ -59,9 +59,9 @@ class Log
 				println(message);
 				#end
 			}
+		 #end
 		}
 	}
-
 	public static function info(message:Dynamic, ?info:PosInfos):Void
 	{
 		if (level >= LogLevel.INFO)
