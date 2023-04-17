@@ -165,9 +165,9 @@ class OptionsMenu extends MusicBeatState
 				curSelected = 0;
 				changeSelection(0);
 			}
-			if (controls.UP)
+			if (controls.UP #if mobile || virtualPad.buttonUp.justPressed #end)
 				changeSelection(-1);
-			if (controls.DOWN)
+			if (controls.DOWN #if mobile || virtualPad.buttonDown.justPressed #end)
 				changeSelection(1);
 			
 			if (isCat)
