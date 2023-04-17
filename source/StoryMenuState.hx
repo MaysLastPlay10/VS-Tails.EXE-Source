@@ -212,13 +212,11 @@ class StoryMenuState extends MusicBeatState
 		{
 			if (!selectedWeek)
 			{
-				if (controls.UP)
-				{
+			if (#if android virtualPad.buttonUp.justPressed #else controls.UP #end) {
 					changeWeek(-1);
 				}
 
-				if (controls.DOWN)
-				{
+			if (#if android virtualPad.buttonDown.justPressed #else controls.DOWN #end) {
 					changeWeek(1);
 				}
 
@@ -241,14 +239,12 @@ class StoryMenuState extends MusicBeatState
 				*/
 			}
 
-			if (controls.ACCEPT)
-			{
+			if (#if android virtualPad.buttonA.justPressed #else controls.ACCEPT #end) {
 				selectWeek();
 			}
 		}
 
-		if (controls.BACK && !movedBack && !selectedWeek)
-		{
+			if (#if android virtualPad.buttonB.justPressed #else controls.BACK #end && !movedBack && !selectedWeek) {
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 			movedBack = true;
 			FlxG.switchState(new MainMenuState());
