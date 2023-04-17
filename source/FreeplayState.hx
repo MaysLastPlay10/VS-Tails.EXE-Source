@@ -233,16 +233,10 @@ class FreeplayState extends MusicBeatState
 
 		maxAccText.text = "AVERAGE ACCURACY:" + lerpMaxAcc + "%";
 
-		var upP = controls.UP;
-		var downP = controls.DOWN;
-		var accepted = controls.ACCEPT;
-
-		if (upP)
-		{
+			if (#if android virtualPad.buttonUp.justPressed #else controls.UP #end) {
 			changeSelection(-1);
 		}
-		if (downP)
-		{
+			if (#if android virtualPad.buttonDown.justPressed #else controls.DOWN #end) {
 			changeSelection(1);
 		}
 
@@ -251,13 +245,11 @@ class FreeplayState extends MusicBeatState
 		//if (FlxG.keys.justPressed.RIGHT)
 		//	changeDiff(1);
 
-		if (controls.BACK)
-		{
+			if (#if android virtualPad.buttonB.justPressed #else controls.BACK #end) {
 			FlxG.switchState(new MainMenuState());
 		}
 
-		if (accepted)
-		{
+			if (#if android virtualPad.buttonA.justPressed #else controls.ACCEPT #end) {
 			var poop:String = Highscore.formatSong(songs[curSelected].songName.toLowerCase(), curDifficulty);
 			var poop2:String = songs[curSelected].songName.toLowerCase();
 			var poop3:Int = songs[curSelected].week;
