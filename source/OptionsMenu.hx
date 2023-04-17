@@ -83,7 +83,10 @@ class OptionsMenu extends MusicBeatState
 
 		changeSelection(0);
 
-                #if mobile addVirtualPad(UP_DOWN, A_B_C); #end
+                #if mobile
+                addVirtualPad(UP_DOWN, A_B_C);
+                addVirtualPadCamera(false);
+                #end
 
                 #if mobile
 		var xd:FlxText = new FlxText(10, 14, 0, 'Press C to customize your android controls', 16);
@@ -162,9 +165,9 @@ class OptionsMenu extends MusicBeatState
 				curSelected = 0;
 				changeSelection(0);
 			}
-			if (FlxG.keys.justPressed.UP)
+			if (controls.UP_P)
 				changeSelection(-1);
-			if (FlxG.keys.justPressed.DOWN)
+			if (controls.DOWN_P)
 				changeSelection(1);
 			
 			if (isCat)
