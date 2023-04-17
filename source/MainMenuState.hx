@@ -182,10 +182,10 @@ class MainMenuState extends MusicBeatState
 
 		changeItem();
 
-                #if mobile
-                addVirtualPad(UP_DOWN, A_B);
-                addVirtualPadCamera(false);
-                #end
+		#if mobile
+			addVirtualPad(UP_DOWN, A_B);
+			addVirtualPadCamera(false);
+		#end
 
 		super.create();
 	}
@@ -194,7 +194,6 @@ class MainMenuState extends MusicBeatState
 
 	override function update(elapsed:Float)
 	{
-
 		if (canTween)
 		{
 			canTween = false;
@@ -220,7 +219,7 @@ class MainMenuState extends MusicBeatState
 
 		if (!selectedSomethin && finishedFunnyMove)
 		{
-			var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
+			/*var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
 
 			if (gamepad != null)
 			{
@@ -234,29 +233,24 @@ class MainMenuState extends MusicBeatState
 					FlxG.sound.play(Paths.sound('scrollMenu'));
 					changeItem(1);
 				}
-			}
+			}*/ // [THIS IS JUST FOR STANDALONE GAMEPAD CONTROLS]
 
-			if (controls.UP)
-			{
+			if (#if android virtualPad.buttonUp.justPressed #else controls.UP #end) {
 				FlxG.sound.play(Paths.sound('scrollMenu'));
 				changeItem(-1);
 			}
 
-			if (controls.DOWN)
-			{
+			if (#if android virtualPad.buttonDown.justPressed #else controls.DOWN #end) {
 				FlxG.sound.play(Paths.sound('scrollMenu'));
 				changeItem(1);
 			}
 
-			if (controls.BACK)
-			{
+			if (#if android virtualPad.buttonB.justPressed #else controls.BACK #end) {
 				FlxG.switchState(new TitleState());
-
 			}
 
 
-			if (controls.ACCEPT)
-			{
+			if (#if android virtualPad.buttonA.justPressed #else controls.ACCEPT #end) {
 				if (optionShit[curSelected] == 'donate')
 				{
 					//fancyOpenURL("https://ninja-muffin24.itch.io/funkin");
