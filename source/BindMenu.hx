@@ -168,6 +168,7 @@ class BindMenu extends MusicBeatState
         #if mobile
                  addVirtualPad(UP_DOWN, A_B);
                  addVirtualPadCamera(false);
+                 addVirtua
         #end
 		super.create();
 	}
@@ -184,13 +185,13 @@ class BindMenu extends MusicBeatState
                 rebindBG.visible = false;
                 rebindText.visible = false;
                 rebindText2.visible = false;
-                if (controls.UP_P)
+                if (controls.UP)
 				{
 					
 					changeItem(-1);
 				}
 
-				if (controls.DOWN_P)
+				if (controls.DOWN)
 				{
 					
 					changeItem(1);
@@ -242,7 +243,7 @@ class BindMenu extends MusicBeatState
 
         }
 
-        if(FlxG.keys.justPressed.ANY && !controls.UP_P && !controls.DOWN_P && !FlxG.keys.justPressed.LEFT && !FlxG.keys.justPressed.RIGHT){
+        if(FlxG.keys.justPressed.ANY && !controls.UP && !controls.DOWN && !FlxG.keys.justPressed.LEFT && !FlxG.keys.justPressed.RIGHT){
 			textUpdate();
              
         }
